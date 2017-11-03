@@ -11,6 +11,7 @@ public class Player : Unit {
 
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             move.speed *= 2;

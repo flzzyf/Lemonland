@@ -6,7 +6,8 @@ public class Unit : MonoBehaviour {
 
     public int hpMax = 10;
     int hpInit;
-    int hp;
+    [HideInInspector]
+    public int hp;
 
     protected Unit_Move move;
 
