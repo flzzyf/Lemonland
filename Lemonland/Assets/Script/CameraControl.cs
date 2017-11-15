@@ -19,9 +19,9 @@ public class CameraControl : MonoBehaviour {
 	void LateUpdate ()
     {
         Vector3 desiredPosition = target.transform.position + offset;
-        Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, target.transform.position, ref cameraVelocity, smoothSpeed);
+        Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref cameraVelocity, smoothSpeed);
         //Vector3 smoothedPosition = Vector3.Lerp(transform.position, target.transform.position, smoothSpeed);
-        smoothedPosition.z = transform.position.z;
+        //smoothedPosition.z = transform.position.z;
         transform.position = smoothedPosition;
 
         //transform.LookAt(target);

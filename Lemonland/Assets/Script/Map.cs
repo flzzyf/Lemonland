@@ -16,7 +16,10 @@ public class Map : MonoBehaviour {
         {
             for(int j = 0; j < col; j++)
             {
-                GameObject instance = Instantiate(floorTiles[Random.Range(0, floorTiles.Length)], new Vector3(i * height, j * height, 0), Quaternion.identity) as GameObject;
+                GameObject instance = Instantiate(
+                    floorTiles[Random.Range(0, floorTiles.Length)], 
+                    new Vector3(i * height, 0, j * height), Quaternion.Euler(new Vector3(90, 0, 0)), transform) as GameObject;
+
             }
         }
 	}
