@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : Unit {
 
-    public Transform flashLight;
+    public GameObject flashLight;
 
     public float rotSpeed = 3f;
 
@@ -34,24 +34,14 @@ public class Player : Unit {
             float speed = move.speed;
 
             transform.Translate(X * speed * Time.deltaTime,
-                                0,
-                                Y * speed * Time.deltaTime, Space.World);
+                                Y * speed * Time.deltaTime,
+                                0, Space.World);
         }
 
         //鼠标世界点
         Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            Debug.Log(hit.point);
-
-        }
-
-        Vector3 dir = new Vector3(mousePoint.x, 0, mousePoint.z) - transform.position;
-
+        Vector3 dir = new Vector3(mousePoint.x, mousePoint.y, 0) - transform.position;
 
         //旋转
         if (dir != Vector3.zero)
@@ -59,7 +49,7 @@ public class Player : Unit {
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            flashLight.rotation = Quaternion.Lerp(transform.rotation, rot, rotSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rot, rotSpeed * Time.deltaTime);
 
         }
     }
