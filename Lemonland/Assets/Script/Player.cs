@@ -39,27 +39,30 @@ public class Player : Unit {
         }
 
         //鼠标世界点
-        Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log(hit.point);
+            Debug.Log(hit.collider.gameObject.name);
 
         }
 
-        Vector3 dir = new Vector3(mousePoint.x, 0, mousePoint.z) - transform.position;
+        Vector3 mousePoint = hit.point;
+
+        Vector3 dir = new Vector3(mousePoint.x, mousePoint.y, mousePoint.z) - transform.position;
+
+        //dir.y = 1;
 
 
         //旋转
         if (dir != Vector3.zero)
         {
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
+            //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            //Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            flashLight.rotation = Quaternion.Lerp(transform.rotation, rot, rotSpeed * Time.deltaTime);
+            Quaternion rot = Quaternion.LookRotation(dir);
+
+            flashLight.rotation = Quaternion.Lerp(flashLight.rotation, rot, rotSpeed * Time.deltaTime);
 
         }
     }
