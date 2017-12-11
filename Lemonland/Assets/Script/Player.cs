@@ -8,6 +8,8 @@ public class Player : Unit {
 
     public float rotSpeed = 3f;
 
+    public GameObject wildFire;
+
 	void Start ()
     {
         Init();
@@ -51,6 +53,7 @@ public class Player : Unit {
 
         Vector3 dir = new Vector3(mousePoint.x, mousePoint.y, mousePoint.z) - transform.position;
 
+        dir.Normalize();
         //dir.y = 1;
 
 
@@ -64,6 +67,15 @@ public class Player : Unit {
 
             flashLight.rotation = Quaternion.Lerp(flashLight.rotation, rot, rotSpeed * Time.deltaTime);
 
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject go = Instantiate(wildFire, transform.position + new Vector3(0, 1, 0), transform.rotation);
+
+            Rigidbody rb = go.GetComponent<Rigidbody>();
+
+            rb.AddForce(dir * 300f);
         }
     }
 }

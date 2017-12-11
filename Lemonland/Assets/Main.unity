@@ -167,6 +167,12 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114147540894630016, guid: b0e2c3501d297ed4a9a517c4e06f864f,
+        type: 2}
+      propertyPath: wildFire
+      value: 
+      objectReference: {fileID: 1344085657721720, guid: 658be8575e006bf4a9e6aa0ca6eb8e42,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 212578878458008072, guid: b0e2c3501d297ed4a9a517c4e06f864f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b0e2c3501d297ed4a9a517c4e06f864f, type: 2}
@@ -305,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4a81b657c234a199717eed9350f550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingObj: 0
 --- !u!1 &561408145
 GameObject:
   m_ObjectHideFlags: 0
@@ -996,6 +1003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4a81b657c234a199717eed9350f550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingObj: 0
 --- !u!1 &1465835089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,6 +1156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4a81b657c234a199717eed9350f550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingObj: 0
 --- !u!1 &1709288232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,3 +1884,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4a81b657c234a199717eed9350f550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingObj: 0
